@@ -1,0 +1,1 @@
+This `README.txt` provides a comprehensive overview of the password checker, including its purpose, usage instructions, example output, and a brief explanation of the code. It also includes sections for contributions and licensing.
