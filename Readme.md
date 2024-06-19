@@ -18,3 +18,18 @@ To use this password checker, follow these steps:
 4. Run the script by executing the following command:
    ```sh
    python password_checker.py
+
+## Code Explanation
+The script contains several functions that each perform a specific check on the password:
+
+`check_length(password)`: Checks if the password is at least 8 characters long.
+
+`check_case(password)`: Ensures the password contains both uppercase and lowercase characters.
+
+`check_digit(password)`: Verifies the presence of at least one digit in the password.
+
+`check_special_character(password)`: Checks if the password includes at least one special character.
+
+`check_password_strength(password)`: Completes all checks to determine the overall strength of the password and provides feedback.
+
+Each function is well-documented with comments explaining its purpose and parameters.
