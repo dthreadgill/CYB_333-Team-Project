@@ -1,4 +1,4 @@
-# Password Checker
+# Password Strength Checker
 
 ## Description
 This Python script is designed to check the strength of a password based on customizable company policies. The script allows users to specify requirements for uppercase characters, lowercase characters, digits, special characters, and overall length. It also provides suggestions for valid passwords if the entered password does not meet the specified policy.
