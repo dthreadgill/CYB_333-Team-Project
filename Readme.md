@@ -4,7 +4,7 @@
 This Python script is designed to check the strength of a password based on customizable company policies. The script allows users to specify requirements for uppercase characters, lowercase characters, digits, special characters, and overall length. It also provides suggestions for valid passwords if the entered password does not meet the specified policy.
 
 ## Features
-- Customizable Password Policy: Define the minimum and maximum length, required number of uppercase, lowercase, digits, and special characters.
+- Customizable Password Policy: Define the minimum and maximum length and required number of uppercase, lowercase, digits, and special characters.
 - Password Validation: Check if a given password meets the defined policy.
 - Password Suggestion: Generate a suggested password that complies with the policy requirements.
 
