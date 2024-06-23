@@ -8,7 +8,7 @@ This Python script is designed to check the strength of a password based on cust
 - Password Validation: Check if a given password meets the defined policy.
 - Password Suggestion: Generate a suggested password that complies with the policy requirements.
 
-##Requirements
+## Requirements
 - Python 3
   
 ## How to Use
