@@ -45,9 +45,9 @@ def get_company_policy():
         except ValueError:
             print("Invalid input. Please enter a valid number.")
 
-    allowed_special_characters = "#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
+    allowed_special_characters = "#$%&'()*+,-./:;<=>?@[\\]^_`{|}~\""
     while True:
-        policy['special_characters'] = input(f"Enter the special characters allowed. Leave blank for default. (Default is {allowed_special_characters}): ")
+        policy['special_characters'] = input(f"Enter the special characters allowed. Leave blank for default special characters. (Default is {allowed_special_characters}): ")
         if not policy['special_characters']:
             policy['special_characters'] = allowed_special_characters
             break
