@@ -1,103 +1,173 @@
-# Function to get company policy from the user
-def get_company_policy():
-    """
-    Get the company policy for password requirements from the user.
+import random
+import string
 
-    Returns:
-    dict: A dictionary containing the company's password policy.
-    """
+
+# Function to get company policy from the user with error handling
+def get_company_policy():
+    # Get the company policy for password requirements from the user
     policy = {}
-    policy['min_length'] = int(input("Enter the minimum length for the password: "))
-    policy['require_upper'] = input("Should the password contain uppercase characters? (yes/no): ").strip().lower() == 'yes'
-    policy['require_lower'] = input("Should the password contain lowercase characters? (yes/no): ").strip().lower() == 'yes'
-    policy['require_digit'] = input("Should the password contain digits? (yes/no): ").strip().lower() == 'yes'
-    policy['require_special'] = input("Should the password contain special characters? (yes/no): ").strip().lower() == 'yes'
+
+    # Get and validate requirement for uppercase characters
+    while True:
+        try:
+            policy['require_upper'] = int(
+                input("\nAt least how many uppercase characters should your password contain? "))
+            if policy['require_upper'] < 0:
+                raise ValueError
+            break
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+
+    # Get and validate requirement for lowercase characters
+    while True:
+        try:
+            policy['require_lower'] = int(
+                input("At least how many lowercase characters should your password contain? "))
+            if policy['require_lower'] < 0:
+                raise ValueError
+            break
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+
+    # Get and validate requirement for digits
+    while True:
+        try:
+            policy['require_digit'] = int(input("At least how many digits should your password contain? "))
+            if policy['require_digit'] < 0:
+                raise ValueError
+            break
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+
+    # Get and validate requirement for special characters
+    while True:
+        try:
+            policy['require_special'] = int(
+                input("At least how many special characters should your password contain? "))
+            if policy['require_special'] < 0:
+                raise ValueError
+            break
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+
+    # Get and validate minimum length
+    while True:
+        try:
+            policy['min_length'] = int(input("Enter the minimum length for the password: "))
+            total_required_chars = (policy['require_upper'] + policy['require_lower'] +
+                                    policy['require_digit'] + policy['require_special'])
+            if policy['min_length'] < total_required_chars:
+                raise ValueError
+            if policy['min_length'] <= 0:
+                raise ValueError
+            break
+        except ValueError:
+            print(
+                f"Invalid input. Minimum length must be at least the sum of all required character types and greater than zero.")
+
+    # Get and validate maximum length
+    while True:
+        try:
+            policy['max_length'] = int(input("Enter the maximum length for the password: "))
+            if policy['max_length'] < policy['min_length']:
+                raise ValueError
+            break
+        except ValueError:
+            print("Invalid input. Maximum length must be greater than or equal to the minimum length.")
+
+    # Get and validate special characters
+    policy['special_characters'] = input("Enter the special characters allowed (leave empty for default): ")
+    if not policy['special_characters']:
+        policy['special_characters'] = "!@#$%^&*()-_=+[{]}\\|;:'\",<.>/?`~"
+
+    # Display the policy details to the user
+    print("\nPassword Policy Requirements:")
+    print(f"- Minimum length: {policy['min_length']}")
+    print(f"- Maximum length: {policy['max_length']}")
+    print(f"- Requires at least {policy['require_upper']} uppercase characters")
+    print(f"- Requires at least {policy['require_lower']} lowercase characters")
+    print(f"- Requires at least {policy['require_digit']} digits")
+    print(f"- Requires at least {policy['require_special']} special characters")
+    print(f"- Allowed special characters: {policy['special_characters']}")
+
     return policy
 
+
 # Function to check if the password length is sufficient
-def check_length(password, min_length):
-    """
-    Check if the password is at least `min_length` characters long.
+def check_length(password, min_length, max_length):
+    # Check if the password length is within the specified range
+    return min_length <= len(password) <= max_length
 
-    Parameters:
-    password (str): The password string to check.
-    min_length (int): The minimum required length for the password.
 
-    Returns:
-    bool: True if the password length is at least `min_length`, False otherwise.
-    """
-    return len(password) >= min_length
-
-# Function to check if the password contains both uppercase and lowercase characters
+# Function to check if the password contains the required number of uppercase and lowercase characters
 def check_case(password, require_upper, require_lower):
-    """
-    Check if the password contains required uppercase and lowercase characters.
+    # Check if the password contains the required number of uppercase and lowercase characters
+    num_upper = sum(1 for char in password if char.isupper())
+    num_lower = sum(1 for char in password if char.islower())
+    return num_upper >= require_upper and num_lower >= require_lower
 
-    Parameters:
-    password (str): The password string to check.
-    require_upper (bool): Whether the password should contain uppercase characters.
-    require_lower (bool): Whether the password should contain lowercase characters.
 
-    Returns:
-    bool: True if the password contains required uppercase and lowercase characters, False otherwise.
-    """
-    has_upper = any(char.isupper() for char in password) if require_upper else True
-    has_lower = any(char.islower() for char in password) if require_lower else True
-    return has_upper and has_lower
-
-# Function to check if the password contains at least one digit
+# Function to check if the password contains the required number of digits
 def check_digit(password, require_digit):
-    """
-    Check if the password contains at least one digit.
+    # Check if the password contains the required number of digits
+    num_digits = sum(1 for char in password if char.isdigit())
+    return num_digits >= require_digit
 
-    Parameters:
-    password (str): The password string to check.
-    require_digit (bool): Whether the password should contain at least one digit.
 
-    Returns:
-    bool: True if the password contains at least one digit, False otherwise.
-    """
-    return any(char.isdigit() for char in password) if require_digit else True
+# Function to check if the password contains the required number of special characters
+def check_special_character(password, require_special, special_characters):
+    # Check if the password contains the required number of special characters
+    num_special = sum(1 for char in password if char in special_characters)
+    return num_special >= require_special
 
-# Function to check if the password contains at least one special character
-def check_special_character(password, require_special):
-    """
-    Check if the password contains at least one special character.
 
-    Parameters:
-    password (str): The password string to check.
-    require_special (bool): Whether the password should contain at least one special character.
+# Function to generate a suggested password based on policy
+def suggest_password(policy):
+    # Generate a password that meets the company policy requirements
+    password = []
 
-    Returns:
-    bool: True if the password contains at least one special character, False otherwise.
-    """
-    special_characters = "!@#$%^&*()-_=+[{]}\\|;:'\",<.>/?`~"
-    return any(char in special_characters for char in password) if require_special else True
+    password.extend(random.choices(string.ascii_uppercase, k=policy['require_upper']))
+    password.extend(random.choices(string.ascii_lowercase, k=policy['require_lower']))
+    password.extend(random.choices(string.digits, k=policy['require_digit']))
+    password.extend(random.choices(policy['special_characters'], k=policy['require_special']))
+
+    remaining_length = policy['min_length'] - len(password)
+
+    if remaining_length > 0:
+        all_characters = string.ascii_letters + string.digits + policy['special_characters']
+        password.extend(random.choices(all_characters, k=remaining_length))
+
+    random.shuffle(password)
+    return ''.join(password[:policy['max_length']])
+
 
 # Main function to check the password strength based on company policy
 def check_password_strength(password, policy):
-    """
-    Check the overall strength of the password based on company policy.
-
-    Parameters:
-    password (str): The password string to check.
-    policy (dict): The company's password policy.
-
-    Returns:
-    str: A message indicating the strength of the password.
-    """
-    if not check_length(password, policy['min_length']):
-        return f"Password must be at least {policy['min_length']} characters long."
+    # Check the overall strength of the password based on company policy
+    if not check_length(password, policy['min_length'], policy['max_length']):
+        return f"Password must be between {policy['min_length']} and {policy['max_length']} characters long. Suggested password: {suggest_password(policy)}"
     if not check_case(password, policy['require_upper'], policy['require_lower']):
-        return "Password must contain both uppercase and lowercase characters."
+        return f"Password must contain at least {policy['require_upper']} uppercase and {policy['require_lower']} lowercase characters. Suggested password: {suggest_password(policy)}"
     if not check_digit(password, policy['require_digit']):
-        return "Password must contain at least one digit."
-    if not check_special_character(password, policy['require_special']):
-        return "Password must contain at least one special character."
+        return f"Password must contain at least {policy['require_digit']} digit(s). Suggested password: {suggest_password(policy)}"
+    if not check_special_character(password, policy['require_special'], policy['special_characters']):
+        return f"Password must contain at least {policy['require_special']} special character(s) from: {policy['special_characters']}. Suggested password: {suggest_password(policy)}"
 
-    return "Password is strong!"
+    return "Your password meets the requirements!"
+
+
+def main():
+    company_policy = get_company_policy()
+
+    while True:
+        password = input("\nEnter your password: ")
+        print(check_password_strength(password, company_policy))
+
+        continue_choice = input("\nDo you want to test another password? (yes/no): ").strip().lower()
+        if continue_choice != 'yes':
+            break
+
 
 # Example usage
-company_policy = get_company_policy()
-password = input("Enter your password: ")
-print(check_password_strength(password, company_policy))
+if __name__ == "__main__":
+    main()
