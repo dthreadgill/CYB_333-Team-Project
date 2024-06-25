@@ -38,8 +38,8 @@ When you run the script, it guides you through setting up the password policy:
   •	**Digits**: Enter the minimum required number of digits.
   •	**Special Characters**: Define the minimum number required and specify allowed characters or use the default set.
 
-**Example Setup:**
-
+**Example Script Setup:**
+ ** Enter**:
    scss
    Copy code
    At least how many uppercase characters should your password contain? 1
