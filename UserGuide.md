@@ -1,10 +1,10 @@
 # Comprehensive User Guide and Setup Instructions for Password Policy Enforcement Script
 
-**1. Overview**
+## 1. Overview
 
 This guide explains how to set up and use a Python script that enforces a custom password policy. The script prompts users to define requirements such as minimum length, character types (uppercase, lowercase, digits, special characters), and validates entered passwords against these set of rules.
 
-**2. Setup Instructions**
+## 2. Setup Instructions
    
 Follow these steps to set up and run the script:
 
@@ -12,7 +12,7 @@ Follow these steps to set up and run the script:
   •	**Download the Script**: Save the script content into a .py file on your local machine; for example, save it as password_policy.py.
   •	**Dependencies**: The script uses Python's built-in modules (random and string), so no additional installations are necessary.
 
-**3. Running the Script**
+## 3. Running the Script
 
 Here’s how to execute the script:
 
