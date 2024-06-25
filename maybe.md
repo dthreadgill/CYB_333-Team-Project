@@ -32,4 +32,4 @@ Use the `cd` command to go to the directory where `password_policy.py` is locate
 ```bash
 cd path/to/your/script/directory
 
-python password_policy.py
+
