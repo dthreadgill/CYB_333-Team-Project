@@ -1,4 +1,4 @@
-**Comprehensive User Guide and Setup Instructions for Password Policy Enforcement Script**
+# Comprehensive User Guide and Setup Instructions for Password Policy Enforcement Script
 
 **1. Overview**
 
