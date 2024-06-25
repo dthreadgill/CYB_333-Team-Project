@@ -40,15 +40,15 @@ When you run the script, it guides you through setting up the password policy:
 
 **Example Setup:**
 
-scss
-Copy code
-At least how many uppercase characters should your password contain? 1
-At least how many lowercase characters should your password contain? 2
-At least how many digits should your password contain? 2
-At least how many special characters should your password contain? 1
-Enter the special characters allowed. Leave blank for default special characters. (Default is !#$%&'()*+,-./:;<=>?@[\]^_`{|}~"): @!_
-Enter the minimum length for the password: 8
-Enter the maximum length for the password: 20
+   scss
+   Copy code
+   At least how many uppercase characters should your password contain? 1
+   At least how many lowercase characters should your password contain? 2
+   At least how many digits should your password contain? 2
+   At least how many special characters should your password contain? 1
+   Enter the special characters allowed. Leave blank for default special characters. (Default is !#$%&'()*+,-./:;<=>?@[\]^_`{|}~"): @!_
+   Enter the minimum length for the password: 8
+   Enter the maximum length for the password: 20
 
 **5. Testing Password Strength**
 
