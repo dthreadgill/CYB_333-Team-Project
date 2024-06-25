@@ -115,4 +115,4 @@ Do you want to test another password? (yes/no): no
 ## Conclusion
 
 By following these detailed instructions, you can effectively implement and manage password policies using the provided Python script. This ensures strong password security aligned with organizational or personal requirements. Adjust policies as needed for enhanced security measures.
-```
+
