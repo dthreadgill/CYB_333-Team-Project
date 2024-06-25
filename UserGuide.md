@@ -29,7 +29,7 @@ Here’s how to execute the script:
     Copy code
     python password_policy.py
 
-**4. Setting Password Policy**
+## 4. Setting Password Policy
 
 When you run the script, it guides you through setting up the password policy:
 
@@ -38,7 +38,7 @@ When you run the script, it guides you through setting up the password policy:
   •	**Digits**: Enter the minimum required number of digits.
   •	**Special Characters**: Define the minimum number required and specify allowed characters or use the default set.
 
-**Example Script Setup:**
+## Example Script Setup:
  **Enter**:
    scss
    Copy code
@@ -50,14 +50,14 @@ When you run the script, it guides you through setting up the password policy:
    Enter the minimum length for the password: 8
    Enter the maximum length for the password: 20
 
-**5. Testing Password Strength**
+## 5. Testing Password Strength
 
 Once policy setup is complete, test passwords to ensure compliance:
   •	**Enter Password**: Input a password when prompted.
   •	**Validation**: The script checks if the password meets all criteria.
   •	**Compliance Message**: If compliant, a success message is displayed; otherwise, it will suggest a compliant password you may use instead.
 
-**Example Usage:**
+## Example Usage:
 
 bash
 Copy code
@@ -70,18 +70,18 @@ Password must contain at least 1 uppercase and 2 lowercase characters, 2 digits,
 
 Do you want to test another password? (yes/no): no
 
-**6. Ending the Script**
+## 6. Ending the Script
 
   •	**Completion**: Type no when asked to continue testing passwords to finish the script.
   •	**Exit**: Close the terminal/command prompt window.
 
-**7. Customization**
+## 7. Customization
   •	** Modify Default Characters**: You can adjust the default special characters set (!#$%&'()*+,-./:;<=>?@[\]^_{|}~"`) or other parameters directly within the script.
 
-**8. Additional Notes**
+## 8. Additional Notes
   • **Security**: Ensure scripts are executed in a secure environment.
   •**Policy Adjustments**: Regularly update policy criteria based on evolving security needs.
   
-**Conclusion**
+## Conclusion
 
 By following these detailed instructions, you can effectively implement and manage password policies using the provided Python script. This ensures strong password security aligned with organizational or personal requirements. Adjust policies as needed for enhanced security measures.
