@@ -39,7 +39,7 @@ When you run the script, it guides you through setting up the password policy:
   •	**Special Characters**: Define the minimum number required and specify allowed characters or use the default set.
 
 **Example Script Setup:**
- ** Enter**:
+ **Enter**:
    scss
    Copy code
    At least how many uppercase characters should your password contain? 1
@@ -79,8 +79,8 @@ Do you want to test another password? (yes/no): no
   •	** Modify Default Characters**: You can adjust the default special characters set (!#$%&'()*+,-./:;<=>?@[\]^_{|}~"`) or other parameters directly within the script.
 
 **8. Additional Notes**
-  •**	Security**: Ensure scripts are executed in a secure environment.
-  •**	Policy Adjustments**: Regularly update policy criteria based on evolving security needs.
+  • **Security**: Ensure scripts are executed in a secure environment.
+  •**Policy Adjustments**: Regularly update policy criteria based on evolving security needs.
   
 **Conclusion**
 
