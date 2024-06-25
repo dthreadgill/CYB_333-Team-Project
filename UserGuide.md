@@ -16,9 +16,9 @@ Follow these steps to set up and run the script:
 
 Here’s how to execute the script:
 
-  •	**Open Terminal/Command Prompt**:
-    o**Windows**: Use Command Prompt.
-    o**macOS/Linux**: Use Terminal.
+  •	Open Terminal/Command Prompt:
+        •**Windows**: Use Command Prompt.
+        •**macOS/Linux**: Use Terminal.
   •	Navigate to Script Directory: Use the cd command to go to the directory where "password_policy.py" is located:
 
     bash
